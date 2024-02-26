@@ -1,0 +1,5 @@
+package spinapp:compose;
+
+world hello {
+	import example:component/add;
+}

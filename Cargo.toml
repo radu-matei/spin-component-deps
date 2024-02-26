@@ -1,0 +1,24 @@
+[package]
+name = "hellocompose"
+authors = ["Radu Matei <radu.matei@fermyon.com>"]
+description = ""
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+anyhow = "1"
+http = "1.0.0"
+serde = { version = "1.0", features = ["derive"] }
+spin-sdk = { git = "https://github.com/fermyon/spin-rust-sdk" }
+wit-bindgen = { version = "0.16.0", default-features = false, features = [
+	"realloc",
+] }
+
+[package.metadata.component]
+package = "spinapp:compose"
+
+[package.metadata.component.target.dependencies]
+"example:component" = { path = "./add/wit" }
